@@ -3,16 +3,16 @@
 build/
 
 # Local configuration file (sdk path, etc)
-local.properties
+/local.properties
 
 # Log/OS Files
 *.log
 
 # Android Studio generated files and folders
-captures/
+/captures/
 .externalNativeBuild/
 .cxx/
-*.apk
+# *.apk
 output.json
 
 # IntelliJ
@@ -21,6 +21,12 @@ output.json
 misc.xml
 deploymentTargetDropDown.xml
 render.experimental.xml
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
 
 # Keystore files
 *.jks
@@ -31,3 +37,5 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+.DS_Store
