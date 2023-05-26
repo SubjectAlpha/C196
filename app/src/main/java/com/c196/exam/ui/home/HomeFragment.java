@@ -1,5 +1,6 @@
 package com.c196.exam.ui.home;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.c196.exam.database.DatabaseHelper;
 import com.c196.exam.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
@@ -26,6 +28,10 @@ public class HomeFragment extends Fragment {
 
         final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
+        SQLiteDatabase db = new DatabaseHelper(getContext()).getDb();
+        System.out.println(db.getVersion());
+
         return root;
     }
 
