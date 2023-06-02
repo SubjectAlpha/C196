@@ -22,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         try{
             createTermsQuery = String.format(createTermsQuery,
                                 DatabaseContract.TermTable.NAME,
-                                DatabaseContract.TermTable._ID, 
+                                DatabaseContract.TermTable._ID,
                                 DatabaseContract.TermTable.TITLE_COLUMN,
                                 DatabaseContract.TermTable.START_COLUMN,
                                 DatabaseContract.TermTable.END_COLUMN);

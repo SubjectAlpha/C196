@@ -1,7 +1,9 @@
 package com.c196.exam.ui.home;
 
+import android.app.DialogFragment;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.c196.exam.database.DatabaseHelper;
 import com.c196.exam.databinding.FragmentHomeBinding;
+import com.google.android.material.snackbar.Snackbar;
 
 public class HomeFragment extends Fragment {
 
@@ -26,11 +29,16 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        binding.addCourse.setOnClickListener(view -> {
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
+        });
+
         final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         SQLiteDatabase db = new DatabaseHelper(getContext()).getDb();
-        System.out.println(db.getVersion());
+        Log.d("INFO", "" + db.getVersion());
 
         return root;
     }
@@ -41,3 +49,4 @@ public class HomeFragment extends Fragment {
         binding = null;
     }
 }
+

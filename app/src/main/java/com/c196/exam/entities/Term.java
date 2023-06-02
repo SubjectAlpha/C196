@@ -6,8 +6,8 @@ import java.util.Date;
 
 public class Term {
     private String title;
-    private Instant start;
-    private Instant end;
+    private long start;
+    private long end;
 
     private ArrayList<Course> courses;
 

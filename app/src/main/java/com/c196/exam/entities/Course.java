@@ -5,12 +5,18 @@ import java.util.ArrayList;
 
 public class Course {
     private String title;
-    private Instant start;
-    private Instant end;
-    private String instructorName;
+    private long start;
+    private long end;
+    private String status;
+    private String instructorFirstName;
+    private String instructorLastName;
     private String instructorEmail;
-    private String instructorFName;
-    private String instructorLName;
     private String instructorPhone;
     private ArrayList<Assessment> assessments;
+
+    public enum Statuses {
+        UNBEGUN,
+        STARTED,
+        COMPLETE
+    }
 }
