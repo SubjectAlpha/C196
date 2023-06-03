@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.c196.exam.database.DatabaseHelper;
 import com.c196.exam.databinding.FragmentHomeBinding;
+import com.c196.exam.ui.dialogs.CreateTermDialogFragment;
 import com.google.android.material.snackbar.Snackbar;
 
 public class HomeFragment extends Fragment {
@@ -30,8 +31,7 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
 
         binding.addCourse.setOnClickListener(view -> {
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
+            new CreateTermDialogFragment().show(getChildFragmentManager(), CreateTermDialogFragment.TAG);
         });
 
         final TextView textView = binding.textHome;
