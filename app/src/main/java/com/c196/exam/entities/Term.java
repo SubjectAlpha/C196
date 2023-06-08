@@ -1,12 +1,27 @@
 package com.c196.exam.entities;
 
-import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Term {
     private String title;
     private long start;
+
+    public long getStart() {
+        return start;
+    }
+
+    public void setStart(long start) {
+        this.start = start;
+    }
+
+    public long getEnd() {
+        return end;
+    }
+
+    public void setEnd(long end) {
+        this.end = end;
+    }
+
     private long end;
 
     private ArrayList<Course> courses;

@@ -23,7 +23,7 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+        ViewGroup container, Bundle savedInstanceState) {
         HomeViewModel homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
@@ -38,7 +38,9 @@ public class HomeFragment extends Fragment {
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         SQLiteDatabase db = new DatabaseHelper(getContext()).getDb();
-        Log.d("INFO", "" + db.getVersion());
+        Log.d("INFO", "DB Ver: " + db.getVersion());
+        //db.query("Term", ["", ""], )
+        db.close();
 
         return root;
     }
