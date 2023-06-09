@@ -5,24 +5,15 @@ import java.util.ArrayList;
 public class Term {
     private String title;
     private long start;
-
-    public long getStart() {
-        return start;
-    }
-
-    public void setStart(long start) {
-        this.start = start;
-    }
-
-    public long getEnd() {
-        return end;
-    }
-
-    public void setEnd(long end) {
-        this.end = end;
-    }
-
     private long end;
+
+    public Term() { }
+
+    public Term(String termTitle, long termStart, long termEnd) {
+        this.title = termTitle;
+        this.start = termStart;
+        this.end = termEnd;
+    }
 
     private ArrayList<Course> courses;
 
