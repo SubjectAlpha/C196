@@ -7,9 +7,8 @@ import android.os.Bundle;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
-
-import com.c196.exam.utility.DateManager;
 
 import java.util.Calendar;
 
@@ -19,6 +18,7 @@ public class SelectDateFragment extends DialogFragment implements DatePickerDial
         Output = output;
     }
 
+    @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final Calendar calendar = Calendar.getInstance();
@@ -33,8 +33,19 @@ public class SelectDateFragment extends DialogFragment implements DatePickerDial
     }
 
     @SuppressLint("SetTextI18n")
-    public void populateSetDate(int year, int month, int day) {
-        Output.setText(DateManager.buildISODate(year, month, day ));
+    public void populateSetDate(int year, int mm, int dd) {
+        String month = String.valueOf(mm + 1);
+        String day = String.valueOf(dd);
+
+        if (month.length() < 2) {
+            month = "0" + month;
+        }
+
+        if(day.length() < 2) {
+            day = "0" + day;
+        }
+
+        Output.setText(year + "-" + month + "-" + day);
     }
 
 }
