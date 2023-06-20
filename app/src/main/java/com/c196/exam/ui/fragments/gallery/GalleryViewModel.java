@@ -1,4 +1,4 @@
-package com.c196.exam.ui.gallery;
+package com.c196.exam.ui.fragments.gallery;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

@@ -1,4 +1,4 @@
-package com.c196.exam.ui.slideshow;
+package com.c196.exam.ui.fragments.slideshow;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

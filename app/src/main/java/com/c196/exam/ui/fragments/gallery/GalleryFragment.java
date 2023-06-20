@@ -1,4 +1,4 @@
-package com.c196.exam.ui.gallery;
+package com.c196.exam.ui.fragments.gallery;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
