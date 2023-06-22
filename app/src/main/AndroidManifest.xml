@@ -13,6 +13,10 @@
         android:theme="@style/Theme.C195Exam"
         tools:targetApi="31">
         <activity
+            android:name=".TermActivity"
+            android:label="Terms"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"

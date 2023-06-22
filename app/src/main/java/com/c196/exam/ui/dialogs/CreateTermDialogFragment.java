@@ -6,12 +6,16 @@ import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
+import androidx.navigation.NavBackStackEntry;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.c196.exam.database.DatabaseHelper;
 import com.c196.exam.entities.Term;
@@ -22,6 +26,17 @@ import java.time.Instant;
 
 public class CreateTermDialogFragment extends DialogFragment {
     public static String TAG = "CreateTermDialog";
+
+    @Override
+    public void onViewCreated(@NonNull View v, Bundle savedInstanceState) {
+        NavController navController = NavHostFragment.findNavController(this);
+        //NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.list_fragment);
+
+        /*viewModel = new ViewModelProvider(backStackEntry).get(ListViewModel.class);
+        viewModel.getFilteredList().observe(getViewLifecycleOwner(), list -> {
+            // Update the list UI.
+        }*/
+    }
 
     @NonNull
     @Override
@@ -72,5 +87,3 @@ public class CreateTermDialogFragment extends DialogFragment {
         return builder.create();
     }
 }
-
-//https://developer.android.com/develop/ui/views/components/dialogs#CustomLayout
