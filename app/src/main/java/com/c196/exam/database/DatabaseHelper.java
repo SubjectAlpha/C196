@@ -57,7 +57,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 index++;
             } while(c.move(index));
         }
-
+        c.close();
         return termList;
     }
 

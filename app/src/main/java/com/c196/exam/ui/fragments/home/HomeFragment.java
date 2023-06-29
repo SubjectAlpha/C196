@@ -1,7 +1,5 @@
 package com.c196.exam.ui.fragments.home;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -12,16 +10,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.c196.exam.MainActivity;
-import com.c196.exam.R;
-import com.c196.exam.TermActivity;
 import com.c196.exam.database.DatabaseHelper;
 import com.c196.exam.databinding.FragmentHomeBinding;
 import com.c196.exam.entities.Term;
-import com.c196.exam.ui.dialogs.CreateTermDialogFragment;
-import com.c196.exam.ui.fragments.term.TermFragment;
 import com.c196.exam.ui.widgets.Card;
 
 import java.util.ArrayList;
@@ -35,12 +28,6 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-        binding.addCourse.setOnClickListener(view -> {
-            CreateTermDialogFragment termDialogFragment = new CreateTermDialogFragment();
-            //COmmunicate between to  reload shit
-            termDialogFragment.show(getChildFragmentManager(), CreateTermDialogFragment.TAG);
-        });
 
         DatabaseHelper helper = new DatabaseHelper(this.getContext());
         ArrayList<Term> terms = helper.getTerms();
@@ -60,7 +47,8 @@ public class HomeFragment extends Fragment {
             card.setOnClickListener(v -> {
                 CharSequence termId = v.getContentDescription();
                 System.out.println(termId);
-                displayTerm(t);
+                MainActivity act = (MainActivity) this.getActivity();
+                act.displayTerm(t);
             });
 
             TextView termName = new TextView(this.getContext());
@@ -95,16 +83,6 @@ public class HomeFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
-    }
-
-    private void displayTerm(Term t){
-        Activity a = this.getActivity();
-        Intent i = new Intent(a, TermActivity.class);
-        Bundle termBundle = new Bundle();
-        termBundle.putInt("TERM_ID", t.getId());
-        termBundle.putString("TERM_TITLE", t.getTitle());
-        i.putExtras(termBundle);
-        startActivity(i);
     }
 }
 
